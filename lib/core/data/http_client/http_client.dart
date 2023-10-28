@@ -16,6 +16,8 @@ class HttpResponse extends Equatable {
     required this.statusCode,
   });
 
+  bool get isSuccess => statusCode >= 200 && statusCode < 300;
+
   @override
   List<Object?> get props => [
         data,
