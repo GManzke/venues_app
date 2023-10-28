@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'near_venues/presentation/near_venues_list_page.dart';
+import 'package:venues_app/features/near_venues/presentation/near_venues_list_page.dart';
 
 void main() {
   runApp(const MyApp());
