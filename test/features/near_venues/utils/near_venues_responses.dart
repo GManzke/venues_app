@@ -27,4 +27,9 @@ class NearVenuesResponses {
           ),
         ),
       ];
+
+  static List<String> get favoriteVenuesList => [
+        '1',
+        '2',
+      ];
 }
