@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:venues_app/core/http_client/http_client_impl.dart';
+import 'package:venues_app/core/data/http_client/http_client_impl.dart';
 
 class MockClient extends Mock implements Client {}
 

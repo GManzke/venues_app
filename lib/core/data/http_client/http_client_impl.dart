@@ -1,5 +1,5 @@
 import 'package:http/http.dart';
-import 'package:venues_app/core/http_client/http_client.dart';
+import 'package:venues_app/core/data/http_client/http_client.dart';
 
 class HttpClientImpl implements HttpClient {
   final Client client;

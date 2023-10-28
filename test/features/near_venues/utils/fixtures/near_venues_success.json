@@ -1,0 +1,1145 @@
+{
+  "sections": [
+    {
+      "template": "venue-vertical-list",
+      "items": [
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "dessert",
+                  "salad",
+                  "wraps",
+                  "burgers",
+                  "american"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-1"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": []
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "jjTYCHru;;DcT;qIh5plTaKBcPBk",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/5ae6013cf78b5a000bb64022/bc80c9c4-9ead-11eb-9441-4efedaea1730_mcd_wolt_etusivu_1010x544.png"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "5ae6013cf78b5a000bb64022",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "jcQFNd;YXjgQpshrTnJAFkOXh7cR"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 0
+              },
+              {
+                "id": "rating",
+                "value": 368
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 0
+              },
+              {
+                "id": "distance",
+                "value": 5
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 77
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "McDonald's Helsinki Kamppi",
+          "track_id": "venue-mcdonalds-kamppi-1",
+          "venue": {
+            "address": "Fredrikinkatu 46",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 10,
+            "estimate_box": {
+              "subtitle": "min",
+              "template": "estimate",
+              "title": "5-15"
+            },
+            "estimate_range": "5-15",
+            "franchise": "",
+            "icon": "bike",
+            "id": "5ae6013cf78b5a000bb64022",
+            "location": [
+              24.930145740509033,
+              60.16896328076366
+            ],
+            "name": "McDonald's Helsinki Kamppi",
+            "online": true,
+            "price_range": 1,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 8.2
+            },
+            "short_description": "I'm lovin' it.",
+            "show_wolt_plus": false,
+            "slug": "mcdonalds-kamppi-1",
+            "tags": [
+              "hamburger",
+              "salad",
+              "dessert"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "mexican",
+                  "street_food"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": []
+              },
+              {
+                "id": "wolt-plus",
+                "values": [
+                  "woltplus"
+                ]
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "j3xTRR;d02;2;;XK8h8y008hez4Y",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/64ef3c817813c54934e36dd6/8af5c6ac-48a1-11ee-b45f-06a833607ce5_480f7408_5e9d_11ed_a29e_3ef9984b28a4_c9dbc45e_01d8_11ed_9fd1_66e09697806a_na_ytto_kuva_2022_7_12_kello_14.49.42.png"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "64ef3c817813c54934e36dd6",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j2wnNx;:02;tJ1;:lKN301d3ox01"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 1
+              },
+              {
+                "id": "rating",
+                "value": 249
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 22
+              },
+              {
+                "id": "distance",
+                "value": 207
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 258
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "Chalupa Kallio",
+          "track_id": "venue-chalupa-kallio",
+          "venue": {
+            "address": "Porthaninkatu 3 ",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 20,
+            "estimate_box": {
+              "subtitle": "min",
+              "template": "estimate",
+              "title": "15-25"
+            },
+            "estimate_range": "15-25",
+            "franchise": "",
+            "icon": "wolt-plus",
+            "id": "64ef3c817813c54934e36dd6",
+            "location": [
+              24.9507068,
+              60.18151630000001
+            ],
+            "name": "Chalupa Kallio",
+            "online": true,
+            "price_range": 0,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 8.6
+            },
+            "short_description": "Raikas meksikolainen",
+            "show_wolt_plus": true,
+            "slug": "chalupa-kallio",
+            "tags": [
+              "burrito",
+              "mexican",
+              "street food"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "kebab"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-1"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": [
+                  "woltplus"
+                ]
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "j1PHKF000000d6NuTucxWYbv40jL",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/59954a6cc3cb581d88d79d39/b203a9c2-55f2-11ee-8bce-f28842e44bde_cover.jpg"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "59954a6cc3cb581d88d79d39",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "jdTZjgcyX;PtKrllllKRPuFlgOmG"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 2
+              },
+              {
+                "id": "rating",
+                "value": 82
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 23
+              },
+              {
+                "id": "distance",
+                "value": 300
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 0
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "King Kebab Kallio",
+          "track_id": "venue-king-kebab-kallio",
+          "venue": {
+            "address": "Vaasankatu 19",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 20,
+            "estimate_box": {
+              "subtitle": "min",
+              "template": "estimate",
+              "title": "15-25"
+            },
+            "estimate_range": "15-25",
+            "franchise": "",
+            "icon": "wolt-plus",
+            "id": "59954a6cc3cb581d88d79d39",
+            "location": [
+              24.95661109685898,
+              60.188470081509806
+            ],
+            "name": "King Kebab Kallio",
+            "online": true,
+            "price_range": 1,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 4,
+              "score": 9.0
+            },
+            "short_description": "Kebabin aatelia",
+            "show_wolt_plus": true,
+            "slug": "king-kebab-kallio",
+            "tags": [
+              "kebab"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "salad",
+                  "soup",
+                  "italian",
+                  "pasta",
+                  "street_food"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-1"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": [
+                  "woltplus"
+                ]
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "j1LXiDL;03XLg38hbu;ITv80Xicx",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/5610f75e4127755a8ee1f1d1/715199a4-bc12-11ed-b111-660024ba005e_cafe__bar_no_913160.jpg"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "5610f75e4127755a8ee1f1d1",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j1MruC;;03P7000000TK00X4Ywcy"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 3
+              },
+              {
+                "id": "rating",
+                "value": 321
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 2
+              },
+              {
+                "id": "distance",
+                "value": 121
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 42
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "manually_curated",
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "Café Bar No 9",
+          "track_id": "venue-cafe-bar-no-9",
+          "venue": {
+            "address": "Uudenmaankatu 9",
+            "badges": [
+              {
+                "text": "Only on Wolt",
+                "variant": "secondary"
+              }
+            ],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 15,
+            "estimate_box": {
+              "subtitle": "min",
+              "template": "estimate",
+              "title": "10-20"
+            },
+            "estimate_range": "10-20",
+            "franchise": "",
+            "icon": "wolt-plus",
+            "id": "5610f75e4127755a8ee1f1d1",
+            "location": [
+              24.941803961992264,
+              60.16491733959296
+            ],
+            "name": "Café Bar No 9",
+            "online": true,
+            "price_range": 1,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 8.4
+            },
+            "short_description": "Kodikas italialainen ravintola",
+            "show_wolt_plus": true,
+            "slug": "cafe-bar-no-9",
+            "tags": [
+              "italian",
+              "pasta",
+              "salad"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "steak",
+                  "georgian",
+                  "european"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-2"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": [
+                  "woltplus"
+                ]
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "j4E7tc0h050k6ZgQ;HKS0b4A;Y;H",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/6380b500a5cb178d924ae6ff/a4e052f0-9599-11ed-bdae-86dd2a31dc82_cover.jpg"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "6380b500a5cb178d924ae6ff",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j1wSBl000:;Z00;;4y4Y0l;:0i;5"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 4
+              },
+              {
+                "id": "rating",
+                "value": 83
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 478
+              },
+              {
+                "id": "distance",
+                "value": 326
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 259
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "Restaurant Georgian Vibe",
+          "track_id": "venue-restaurant-georgian-vibe",
+          "venue": {
+            "address": "Hämeentie 62",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 60,
+            "franchise": "",
+            "icon": "wolt-plus",
+            "id": "6380b500a5cb178d924ae6ff",
+            "location": [
+              24.9634795,
+              60.1886827
+            ],
+            "name": "Restaurant Georgian Vibe",
+            "online": true,
+            "price_range": 2,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 9.0
+            },
+            "short_description": "Georgialaista grilliruokaa",
+            "show_wolt_plus": true,
+            "slug": "restaurant-georgian-vibe",
+            "tags": [
+              "georgian",
+              "grill",
+              "european"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "kebab",
+                  "pizza"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-2"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": [
+                  "woltplus"
+                ]
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "j4KFBR8XZ0TKfu;BgOeu;GLcXtKX",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/5e217faae724ce083f07bbe0/2830e3c0-81f1-11ed-a1f3-028ae948a798_sanmarino_discovery.jpg"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "5e217faae724ce083f07bbe0",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j6LGi9YMX:8i;;4hXuhY94pkcAdc"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 5
+              },
+              {
+                "id": "rating",
+                "value": 322
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 479
+              },
+              {
+                "id": "distance",
+                "value": 1
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 78
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "San Marino",
+          "track_id": "venue-san-marino",
+          "venue": {
+            "address": "Antinkatu 2",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 60,
+            "franchise": "",
+            "icon": "wolt-plus",
+            "id": "5e217faae724ce083f07bbe0",
+            "location": [
+              24.9327009,
+              60.17010980000001
+            ],
+            "name": "San Marino",
+            "online": true,
+            "price_range": 2,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 8.4
+            },
+            "short_description": "Herkullisia pizzoja",
+            "show_wolt_plus": true,
+            "slug": "san-marino",
+            "tags": [
+              "kebab",
+              "pizza"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "sushi",
+                  "fish",
+                  "asian",
+                  "japanese"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-2"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": []
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "jbMG:z;rEPNkmYGWOYPddkh3cOh5",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/5a01c15c7d2d00000d295fee/698e81f3c56116c65c9c4bc6664ee418"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "5a01c15c7d2d00000d295fee",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j2G9Kc;ZYgbd014T4QPs4hP;h2;J"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 6
+              },
+              {
+                "id": "rating",
+                "value": 171
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 480
+              },
+              {
+                "id": "distance",
+                "value": 14
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 43
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "Itsudemo Helsinki",
+          "track_id": "venue-itsudemo-helsinki",
+          "venue": {
+            "address": "Salomonkatu 3",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 60,
+            "franchise": "",
+            "icon": "bike",
+            "id": "5a01c15c7d2d00000d295fee",
+            "location": [
+              24.934571385383606,
+              60.17049550452077
+            ],
+            "name": "Itsudemo Helsinki",
+            "online": true,
+            "price_range": 2,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 8.8
+            },
+            "short_description": "Tuoreista raaka-aineista",
+            "show_wolt_plus": false,
+            "slug": "itsudemo-helsinki",
+            "tags": [
+              "sushi",
+              "fish",
+              "japanese"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "dessert",
+                  "italian",
+                  "pasta",
+                  "fish",
+                  "mediterranean"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-2"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": [
+                  "woltplus"
+                ]
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "j7RYyZeZkQL;KQgP8yTcTuHLR1cO",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/64a6b89d18e0643ecae3e067/ddc7ea8e-1ca2-11ee-b10a-5eec8142794e_2a605822_52b0_11ec_8405_a2fbe3f97fa0_cover.jpg"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "64a6b89d18e0643ecae3e067",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j7RYyZeZkQL;KQgP8yTcTuHLR1cO"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 7
+              },
+              {
+                "id": "rating",
+                "value": 229
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 481
+              },
+              {
+                "id": "distance",
+                "value": 55
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 260
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "Ravintola Coma",
+          "track_id": "venue-ravintola-coma",
+          "venue": {
+            "address": "Museokatu 18",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 60,
+            "franchise": "",
+            "icon": "wolt-plus",
+            "id": "64a6b89d18e0643ecae3e067",
+            "location": [
+              24.9281411,
+              60.1746885
+            ],
+            "name": "Ravintola Coma",
+            "online": true,
+            "price_range": 2,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "short_description": "Authentic Mediterranean cuisine",
+            "show_wolt_plus": true,
+            "slug": "ravintola-coma",
+            "tags": [
+              "mediterranean",
+              "italian",
+              "pasta"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "chinese",
+                  "noodles",
+                  "asian"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-2"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": []
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "j4CDdi8OTt;IQyftxkES;ZeYcR4z",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/646b525ebea1b662f5310743/e900e2f0-0b42-11ee-b2a8-562a1fb01c81_shutterstock_446808100__1_.jpg"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "646b525ebea1b662f5310743",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j4CDdi8OTt;IQyftxkES;ZeYcR4z"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 8
+              },
+              {
+                "id": "rating",
+                "value": 420
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 482
+              },
+              {
+                "id": "distance",
+                "value": 375
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 261
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "Ravintola Mala",
+          "track_id": "venue-ravintola-mala1",
+          "venue": {
+            "address": "Opastinsilta 10",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 60,
+            "franchise": "",
+            "icon": "bike",
+            "id": "646b525ebea1b662f5310743",
+            "location": [
+              24.9377841,
+              60.19913039999999
+            ],
+            "name": "Ravintola Mala",
+            "online": true,
+            "price_range": 2,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 7.8
+            },
+            "short_description": "Authentic chinese flavours",
+            "show_wolt_plus": false,
+            "slug": "ravintola-mala1",
+            "tags": [
+              "chinese",
+              "rice",
+              "noodles"
+            ]
+          }
+        },
+        {
+          "filtering": {
+            "filters": [
+              {
+                "id": "primary",
+                "values": [
+                  "pizza",
+                  "chicken",
+                  "burgers"
+                ]
+              },
+              {
+                "id": "price-range",
+                "values": [
+                  "price-range-2"
+                ]
+              },
+              {
+                "id": "wolt-plus",
+                "values": []
+              }
+            ]
+          },
+          "image": {
+            "blurhash": "jasRcWlBTbdX;JpChldXOXlld4hG",
+            "url": "https://prod-wolt-venue-images-cdn.wolt.com/64885bb217c8276b9965e0c0/875317f2-0ffd-11ee-9366-1edc62c74ebb_4554cf9c_a6cd_11ed_8098_e668ed7317c5_b9c7ffee_1091_11ec_a122_0628cf7f6be8_shutterstock_1092270632.jpg"
+          },
+          "link": {
+            "selected_delivery_method": "homedelivery",
+            "target": "64885bb217c8276b9965e0c0",
+            "target_sort": "delivers-to",
+            "target_title": "",
+            "title": "",
+            "type": "venue-id",
+            "venue_mainimage_blurhash": "j4KplI02035t;:Pth4RX01jdTuXr"
+          },
+          "sorting": {
+            "sortables": [
+              {
+                "id": "delivery-price",
+                "value": 9
+              },
+              {
+                "id": "rating",
+                "value": 437
+              },
+              {
+                "id": "delivery-estimate",
+                "value": 483
+              },
+              {
+                "id": "distance",
+                "value": 446
+              },
+              {
+                "id": "preparation-estimate",
+                "value": 262
+              }
+            ]
+          },
+          "telemetry_venue_badges": [
+            "promotions"
+          ],
+          "template": "venue-large",
+          "title": "Muusan Krouvi",
+          "track_id": "venue-muusan-krouvi",
+          "venue": {
+            "address": "Muusantori 5",
+            "badges": [],
+            "categories": [],
+            "city": "",
+            "country": "FIN",
+            "currency": "EUR",
+            "delivers": true,
+            "delivery_price": "€0.00",
+            "delivery_price_highlight": true,
+            "delivery_price_int": 0,
+            "estimate": 60,
+            "franchise": "",
+            "icon": "bike",
+            "id": "64885bb217c8276b9965e0c0",
+            "location": [
+              24.855953747228153,
+              60.207238747995156
+            ],
+            "name": "Muusan Krouvi",
+            "online": true,
+            "price_range": 2,
+            "product_line": "restaurant",
+            "promotions": [
+              {
+                "icon": "coupon-fill",
+                "text": "Free delivery for new users",
+                "variant": "discount"
+              }
+            ],
+            "rating": {
+              "rating": 3,
+              "score": 7.6
+            },
+            "short_description": "Maukkaat pizzat ja burgerit",
+            "show_wolt_plus": false,
+            "slug": "muusan-krouvi",
+            "tags": [
+              "pizza",
+              "burger",
+              "chicken"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
