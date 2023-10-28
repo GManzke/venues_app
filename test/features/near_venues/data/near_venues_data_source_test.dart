@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:venues_app/core/data/http_client/http_client.dart';
+import 'package:venues_app/core/wrappers/http_client/http_client.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_data_source.dart';
 import 'package:venues_app/features/near_venues/domain/errors/near_venues_errors.dart';
 

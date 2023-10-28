@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import 'package:venues_app/core/data/http_client/http_client.dart';
 import 'package:venues_app/core/data/models/base_models/section_model.dart';
 import 'package:venues_app/core/data/models/venue_large_item/venue_large_item_model.dart';
 import 'package:venues_app/core/domain/entities/base_entities/section_entity.dart';
+import 'package:venues_app/core/wrappers/http_client/http_client.dart';
 import 'package:venues_app/features/near_venues/domain/errors/near_venues_errors.dart';
 
 abstract class NearVenuesDataSource {
