@@ -8,8 +8,8 @@ import 'package:venues_app/features/near_venues/domain/errors/near_venues_errors
 
 abstract class NearVenuesDataSource {
   Future<List<VenueLargeItemModel>> getNearVenues({
-    required double latitude,
-    required double longitude,
+    required double lat,
+    required double lon,
   });
 }
 
@@ -22,12 +22,12 @@ class NearVenuesDataSourceImpl implements NearVenuesDataSource {
 
   @override
   Future<List<VenueLargeItemModel>> getNearVenues({
-    required double latitude,
-    required double longitude,
+    required double lat,
+    required double lon,
   }) async {
     final response = await httpClient.get(path, queryParameters: {
-      'lat': latitude,
-      'lon': longitude,
+      'lat': lat,
+      'lon': lon,
     });
 
     if (response.isSuccess) {

@@ -34,8 +34,8 @@ void main() {
       );
 
       final result = await dataSource.getNearVenues(
-        latitude: expectedLatitude,
-        longitude: expectedLongitude,
+        lat: expectedLatitude,
+        lon: expectedLongitude,
       );
 
       expect(result, isA<List>());
@@ -55,8 +55,8 @@ void main() {
       );
 
       final result = dataSource.getNearVenues(
-        latitude: 1.0,
-        longitude: 2.0,
+        lat: 1.0,
+        lon: 2.0,
       );
 
       expect(result, throwsA(isA<NearVenuesGenericException>()));
@@ -76,8 +76,8 @@ void main() {
       );
 
       final result = dataSource.getNearVenues(
-        latitude: 1.0,
-        longitude: 2.0,
+        lat: 1.0,
+        lon: 2.0,
       );
 
       expect(result, throwsA(isA<NearVenuesNotFoundException>()));
