@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:venues_app/core/data/data_sources/user_location_data_source.dart';
-import 'package:venues_app/core/data/data_sources/venues_local_data_source.dart';
+import 'package:venues_app/core/data/data_sources/favorite_venues_local_data_source.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_data_source.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_repository.dart';
@@ -37,12 +37,14 @@ void main() {
   group('getNearVenues - ', () {
     test('Should successfully return a list of VenueLargeItemEntity', () async {
       const location = (lat: 1.0, lon: 2.0);
+      const expectedMaxItems = 15;
 
       when(
         () => userLocationDataSource.getLocation(),
       ).thenAnswer((_) async => (location.lat, location.lon));
       when(
         () => nearVenuesDataSource.getNearVenues(
+          maxItems: expectedMaxItems,
           lat: location.lat,
           lon: location.lon,
         ),
@@ -55,7 +57,9 @@ void main() {
         () => venuesLocalDataSource.getFavoriteVenues(),
       ).thenReturn([]);
 
-      final result = await nearVenuesRepositoryImpl.getNearVenues();
+      final result = await nearVenuesRepositoryImpl.getNearVenues(
+        maxItems: expectedMaxItems,
+      );
 
       expect(
         result,
@@ -71,6 +75,7 @@ void main() {
       );
       verify(
         () => nearVenuesDataSource.getNearVenues(
+          maxItems: expectedMaxItems,
           lat: location.lat,
           lon: location.lon,
         ),
@@ -83,6 +88,8 @@ void main() {
         'Should successfully return a list of VenueLargeItemEntity with favorites',
         () async {
       const location = (lat: 1.0, lon: 2.0);
+      const expectedMaxItems = 15;
+
       var expectedList = List<VenueLargeItemEntity>.of(
           NearVenuesResponses.nearVenuesModelList);
       expectedList[0] = expectedList[0].copyWith(isFavorite: true);
@@ -92,6 +99,7 @@ void main() {
       ).thenAnswer((_) async => (location.lat, location.lon));
       when(
         () => nearVenuesDataSource.getNearVenues(
+          maxItems: expectedMaxItems,
           lat: location.lat,
           lon: location.lon,
         ),
@@ -104,7 +112,9 @@ void main() {
         () => venuesLocalDataSource.getFavoriteVenues(),
       ).thenReturn(['id']);
 
-      final result = await nearVenuesRepositoryImpl.getNearVenues();
+      final result = await nearVenuesRepositoryImpl.getNearVenues(
+        maxItems: expectedMaxItems,
+      );
 
       expect(
         result,

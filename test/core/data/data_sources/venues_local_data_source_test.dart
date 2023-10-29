@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:venues_app/core/data/data_sources/venues_local_data_source.dart';
+import 'package:venues_app/core/data/data_sources/favorite_venues_local_data_source.dart';
 import 'package:venues_app/core/wrappers/preferences/preferences_storage.dart';
 
 class MockPreferencesStorage extends Mock implements PreferencesStorage {}

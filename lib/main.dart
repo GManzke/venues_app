@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:venues_app/application_di.dart';
 import 'package:venues_app/features/near_venues/presentation/near_venues_list_page.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ApplicationDI.init();
+
   runApp(const MyApp());
 }
 

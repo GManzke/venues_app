@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-abstract class HttpClient {
+abstract class HttpClientService {
   Future<HttpResponse> get(
     String path, {
     Map<String, dynamic>? queryParameters,

@@ -1,15 +1,15 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:venues_app/core/wrappers/http_client/http_client.dart';
+import 'package:venues_app/core/wrappers/http_client/http_client_service.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_data_source.dart';
 import 'package:venues_app/features/near_venues/domain/errors/near_venues_errors.dart';
 
 import '../utils/near_venues_responses.dart';
 
-class MockHttpClient extends Mock implements HttpClient {}
+class MockHttpClient extends Mock implements HttpClientService {}
 
 void main() {
-  late HttpClient httpClient;
+  late HttpClientService httpClient;
   late NearVenuesDataSourceImpl dataSource;
 
   setUp(() {
@@ -22,6 +22,7 @@ void main() {
         () async {
       const expectedLatitude = 1.0;
       const expectedLongitude = 2.0;
+      const expectedMaxItems = 15;
 
       when(() => httpClient.get(
             any(),
@@ -34,6 +35,7 @@ void main() {
       );
 
       final result = await dataSource.getNearVenues(
+        maxItems: expectedMaxItems,
         lat: expectedLatitude,
         lon: expectedLongitude,
       );
@@ -55,6 +57,7 @@ void main() {
       );
 
       final result = dataSource.getNearVenues(
+        maxItems: 15,
         lat: 1.0,
         lon: 2.0,
       );
@@ -76,6 +79,7 @@ void main() {
       );
 
       final result = dataSource.getNearVenues(
+        maxItems: 15,
         lat: 1.0,
         lon: 2.0,
       );

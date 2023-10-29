@@ -6,7 +6,6 @@ class FetchNearVenuesUseCase {
 
   FetchNearVenuesUseCase(this.nearVenuesRepository);
 
-  Future<List<VenueLargeItemEntity>> call() async {
-    return await nearVenuesRepository.getNearVenues();
-  }
+  Future<List<VenueLargeItemEntity>> call() async =>
+      nearVenuesRepository.getNearVenues(maxItems: 15);
 }

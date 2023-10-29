@@ -3,18 +3,19 @@ import 'dart:convert';
 import 'package:venues_app/core/data/models/base_models/section_model.dart';
 import 'package:venues_app/core/data/models/venue_large_item/venue_large_item_model.dart';
 import 'package:venues_app/core/domain/entities/base_entities/section_entity.dart';
-import 'package:venues_app/core/wrappers/http_client/http_client.dart';
+import 'package:venues_app/core/wrappers/http_client/http_client_service.dart';
 import 'package:venues_app/features/near_venues/domain/errors/near_venues_errors.dart';
 
 abstract class NearVenuesDataSource {
   Future<List<VenueLargeItemModel>> getNearVenues({
+    required int maxItems,
     required double lat,
     required double lon,
   });
 }
 
 class NearVenuesDataSourceImpl implements NearVenuesDataSource {
-  final HttpClient httpClient;
+  final HttpClientService httpClient;
 
   NearVenuesDataSourceImpl({required this.httpClient});
 
@@ -22,6 +23,7 @@ class NearVenuesDataSourceImpl implements NearVenuesDataSource {
 
   @override
   Future<List<VenueLargeItemModel>> getNearVenues({
+    required int maxItems,
     required double lat,
     required double lon,
   }) async {
@@ -46,6 +48,7 @@ class NearVenuesDataSourceImpl implements NearVenuesDataSource {
       }
 
       return venueListSection.items!
+          .take(maxItems)
           .map((e) => VenueLargeItemModel.fromJson(e))
           .toList();
     } else {

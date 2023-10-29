@@ -4,14 +4,14 @@ class VenueInfoModel extends VenueInfoEntity {
   const VenueInfoModel({
     required super.id,
     required super.name,
-    required super.shortDescription,
+    super.shortDescription,
   });
 
   factory VenueInfoModel.fromJson(Map<String, dynamic> json) {
     return VenueInfoModel(
-      id: json['id'],
-      name: json['name'],
-      shortDescription: json['short_description'],
+      id: json['id'] as String,
+      name: json['name'] as String,
+      shortDescription: json['short_description'] as String?,
     );
   }
 }

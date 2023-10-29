@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:venues_app/core/wrappers/http_client/http_client_impl.dart';
+import 'package:venues_app/core/wrappers/http_client/http_client_service_impl.dart';
 
 class MockClient extends Mock implements Client {}
 
@@ -9,10 +9,10 @@ class FakeUri extends Fake implements Uri {}
 
 void main() {
   late MockClient mockClient;
-  late HttpClientImpl httpClientImpl;
+  late HttpClientServiceImpl httpClientImpl;
 
   const baseUrl = 'https://restaurant-api.wolt.com';
-  const timeout = 10;
+  const timeout = Duration(seconds: 10);
 
   final successResponse = Response(
     '{"sections": []}',
@@ -26,7 +26,7 @@ void main() {
 
   setUp(() {
     mockClient = MockClient();
-    httpClientImpl = HttpClientImpl(
+    httpClientImpl = HttpClientServiceImpl(
       client: mockClient,
       baseUrl: baseUrl,
       timeout: timeout,

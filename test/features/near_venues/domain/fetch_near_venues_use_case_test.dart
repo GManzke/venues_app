@@ -17,7 +17,9 @@ void main() {
   });
 
   test('Should return a list of VenueLargeItemEntity', () async {
-    when(() => mockNearVenuesRepository.getNearVenues()).thenAnswer(
+    when(() => mockNearVenuesRepository.getNearVenues(
+          maxItems: 15,
+        )).thenAnswer(
       (_) async => NearVenuesResponses.nearVenuesEntityList,
     );
 
