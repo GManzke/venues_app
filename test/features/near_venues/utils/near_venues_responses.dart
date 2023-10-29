@@ -54,6 +54,31 @@ class NearVenuesResponses {
         ),
       ];
 
+  static List<VenueLargeItemEntity> get nearVenuesEntityListWithFavorite =>
+      const [
+        VenueLargeItemEntity(
+          isFavorite: true,
+          info: VenueInfoEntity(
+            id: '1',
+            name: 'name',
+            shortDescription: 'Short description',
+          ),
+          image: VenueImageEntity(
+            url: 'url',
+          ),
+        ),
+        VenueLargeItemEntity(
+          info: VenueInfoEntity(
+            id: '2',
+            name: 'name',
+            shortDescription: 'Short description',
+          ),
+          image: VenueImageEntity(
+            url: 'url',
+          ),
+        ),
+      ];
+
   static List<String> get favoriteVenuesList => [
         '1',
         '2',

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_repository.dart';
-import 'package:venues_app/features/near_venues/domain/fetch_favorite_venues_use_case.dart';
+import 'package:venues_app/features/near_venues/domain/fetch_favorite_venues_id_use_case.dart';
 
 class MockNearVenuesRepository extends Mock implements NearVenuesRepository {}
 
