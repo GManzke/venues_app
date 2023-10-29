@@ -13,12 +13,13 @@ class MockNearVenuesDataSource extends Mock implements NearVenuesDataSource {}
 class MockUserLocationDataSource extends Mock
     implements UserLocationDataSource {}
 
-class MockVenuesLocalDataSource extends Mock implements VenuesLocalDataSource {}
+class MockVenuesLocalDataSource extends Mock
+    implements FavoriteVenuesLocalDataSource {}
 
 void main() {
   late NearVenuesDataSource nearVenuesDataSource;
   late UserLocationDataSource userLocationDataSource;
-  late VenuesLocalDataSource venuesLocalDataSource;
+  late FavoriteVenuesLocalDataSource venuesLocalDataSource;
   late NearVenuesRepositoryImpl nearVenuesRepositoryImpl;
 
   setUp(() {
@@ -28,8 +29,8 @@ void main() {
 
     nearVenuesRepositoryImpl = NearVenuesRepositoryImpl(
       nearVenuesSource: nearVenuesDataSource,
-      userLocationSource: userLocationDataSource,
-      venuesLocalSource: venuesLocalDataSource,
+      locationDataSource: userLocationDataSource,
+      favoritesDataSource: venuesLocalDataSource,
     );
   });
 
@@ -50,6 +51,9 @@ void main() {
           NearVenuesResponses.nearVenuesModelList,
         ),
       );
+      when(
+        () => venuesLocalDataSource.getFavoriteVenues(),
+      ).thenReturn([]);
 
       final result = await nearVenuesRepositoryImpl.getNearVenues();
 
@@ -74,31 +78,38 @@ void main() {
       verifyNoMoreInteractions(userLocationDataSource);
       verifyNoMoreInteractions(nearVenuesDataSource);
     });
-  });
 
-  group('getFavoriteVenues - ', () {
-    test('Should successfully return a list of VenueLargeItemEntity', () async {
+    test(
+        'Should successfully return a list of VenueLargeItemEntity with favorites',
+        () async {
+      const location = (lat: 1.0, lon: 2.0);
+      var expectedList = List<VenueLargeItemEntity>.of(
+          NearVenuesResponses.nearVenuesModelList);
+      expectedList[0] = expectedList[0].copyWith(isFavorite: true);
+
+      when(
+        () => userLocationDataSource.getLocation(),
+      ).thenAnswer((_) async => (location.lat, location.lon));
+      when(
+        () => nearVenuesDataSource.getNearVenues(
+          lat: location.lat,
+          lon: location.lon,
+        ),
+      ).thenAnswer(
+        (_) => Future.value(
+          NearVenuesResponses.nearVenuesModelList,
+        ),
+      );
       when(
         () => venuesLocalDataSource.getFavoriteVenues(),
-      ).thenReturn(
-        NearVenuesResponses.favoriteVenuesList,
-      );
+      ).thenReturn(['id']);
 
-      final result = nearVenuesRepositoryImpl.getFavoriteVenues();
+      final result = await nearVenuesRepositoryImpl.getNearVenues();
 
       expect(
         result,
-        NearVenuesResponses.favoriteVenuesList,
+        expectedList,
       );
-      expect(
-        result,
-        isA<List<String>>(),
-      );
-
-      verify(
-        () => venuesLocalDataSource.getFavoriteVenues(),
-      );
-      verifyNoMoreInteractions(venuesLocalDataSource);
     });
   });
 

@@ -1,5 +1,4 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:venues_app/features/near_venues/domain/fetch_favorite_venues_id_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/fetch_near_venues_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/remove_venue_from_favorites_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/save_venue_as_favorite_use_case.dart';
@@ -7,13 +6,11 @@ import 'package:venues_app/features/near_venues/presentation/controller/near_ven
 
 class NearVenuesCubit extends Cubit<NearVenuesState> {
   final FetchNearVenuesUseCase fetchNearVenuesUseCase;
-  final FetchFavoriteVenuesIDUseCase fetchFavoriteVenuesUseCase;
   final SaveVenueAsFavoriteUseCase saveFavoriteVenueUseCase;
   final RemoveVenueFromFavoritesUseCase removeFavoriteVenueUseCase;
 
   NearVenuesCubit({
     required this.fetchNearVenuesUseCase,
-    required this.fetchFavoriteVenuesUseCase,
     required this.saveFavoriteVenueUseCase,
     required this.removeFavoriteVenueUseCase,
   }) : super(NearVenuesLoadingState());
@@ -22,14 +19,8 @@ class NearVenuesCubit extends Cubit<NearVenuesState> {
     emit(NearVenuesLoadingState());
     try {
       final venuesList = await fetchNearVenuesUseCase();
-      final favoriteVenuesIDList = fetchFavoriteVenuesUseCase();
 
-      final venuesListWithFavoriteStatus = venuesList.map((venue) {
-        final isFavorite = favoriteVenuesIDList.contains(venue.info.id);
-        return venue.copyWith(isFavorite: isFavorite);
-      }).toList();
-
-      emit(NearVenuesLoadedState(venuesList: venuesListWithFavoriteStatus));
+      emit(NearVenuesLoadedState(venuesList: venuesList));
     } catch (e) {
       emit(NearVenuesErrorState());
     }

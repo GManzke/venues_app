@@ -1,7 +1,6 @@
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:venues_app/features/near_venues/domain/fetch_favorite_venues_id_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/fetch_near_venues_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/remove_venue_from_favorites_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/save_venue_as_favorite_use_case.dart';
@@ -13,9 +12,6 @@ import '../utils/near_venues_responses.dart';
 class MockFetchNearVenuesUseCase extends Mock
     implements FetchNearVenuesUseCase {}
 
-class MockFetchFavoriteVenuesIDUseCase extends Mock
-    implements FetchFavoriteVenuesIDUseCase {}
-
 class MockSaveVenueAsFavoriteUseCase extends Mock
     implements SaveVenueAsFavoriteUseCase {}
 
@@ -24,19 +20,16 @@ class MockRemoveVenueFromFavoritesUseCase extends Mock
 
 void main() {
   late MockFetchNearVenuesUseCase mockFetchNearVenuesUseCase;
-  late MockFetchFavoriteVenuesIDUseCase mockFetchFavoriteVenuesIDUseCase;
   late MockSaveVenueAsFavoriteUseCase mockSaveVenueAsFavoriteUseCase;
   late MockRemoveVenueFromFavoritesUseCase mockRemoveVenueFromFavoritesUseCase;
   late NearVenuesCubit nearVenuesCubit;
 
   setUp(() {
     mockFetchNearVenuesUseCase = MockFetchNearVenuesUseCase();
-    mockFetchFavoriteVenuesIDUseCase = MockFetchFavoriteVenuesIDUseCase();
     mockSaveVenueAsFavoriteUseCase = MockSaveVenueAsFavoriteUseCase();
     mockRemoveVenueFromFavoritesUseCase = MockRemoveVenueFromFavoritesUseCase();
     nearVenuesCubit = NearVenuesCubit(
       fetchNearVenuesUseCase: mockFetchNearVenuesUseCase,
-      fetchFavoriteVenuesUseCase: mockFetchFavoriteVenuesIDUseCase,
       saveFavoriteVenueUseCase: mockSaveVenueAsFavoriteUseCase,
       removeFavoriteVenueUseCase: mockRemoveVenueFromFavoritesUseCase,
     );
@@ -61,9 +54,7 @@ void main() {
         when(() => mockFetchNearVenuesUseCase()).thenAnswer(
           (_) async => NearVenuesResponses.nearVenuesEntityList,
         );
-        when(() => mockFetchFavoriteVenuesIDUseCase()).thenReturn(
-          [],
-        );
+
         return nearVenuesCubit;
       },
       act: (cubit) => cubit.fetchData(),

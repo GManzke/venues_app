@@ -7,11 +7,11 @@ class MockPreferencesStorage extends Mock implements PreferencesStorage {}
 
 void main() {
   late PreferencesStorage preferencesStorage;
-  late VenuesLocalDataSourceImpl venuesLocalDataSourceImpl;
+  late FavoriteVenuesLocalDataSourceImpl venuesLocalDataSourceImpl;
 
   setUp(() {
     preferencesStorage = MockPreferencesStorage();
-    venuesLocalDataSourceImpl = VenuesLocalDataSourceImpl(
+    venuesLocalDataSourceImpl = FavoriteVenuesLocalDataSourceImpl(
       storage: preferencesStorage,
     );
   });

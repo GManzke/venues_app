@@ -6,8 +6,6 @@ import 'package:venues_app/features/near_venues/data/near_venues_data_source.dar
 abstract class NearVenuesRepository {
   Future<List<VenueLargeItemEntity>> getNearVenues();
 
-  List<String> getFavoriteVenues();
-
   void removeFavoriteVenue(String venueId);
 
   void saveFavoriteVenue(String venueId);
@@ -15,37 +13,42 @@ abstract class NearVenuesRepository {
 
 class NearVenuesRepositoryImpl implements NearVenuesRepository {
   final NearVenuesDataSource nearVenuesSource;
-  final UserLocationDataSource userLocationSource;
-  final VenuesLocalDataSource venuesLocalSource;
+  final UserLocationDataSource locationDataSource;
+  final FavoriteVenuesLocalDataSource favoritesDataSource;
 
   NearVenuesRepositoryImpl({
     required this.nearVenuesSource,
-    required this.userLocationSource,
-    required this.venuesLocalSource,
+    required this.locationDataSource,
+    required this.favoritesDataSource,
   });
 
   @override
   Future<List<VenueLargeItemEntity>> getNearVenues() async {
-    final (lat, lon) = await userLocationSource.getLocation();
+    final (lat, lon) = await locationDataSource.getLocation();
 
-    final venues = await nearVenuesSource.getNearVenues(
+    var venues =
+        List<VenueLargeItemEntity>.of(await nearVenuesSource.getNearVenues(
       lat: lat,
       lon: lon,
-    );
+    ));
+
+    final favoriteIds = favoritesDataSource.getFavoriteVenues();
+
+    for (var id in favoriteIds) {
+      final index = venues.indexWhere((element) => element.info.id == id);
+      if (index == -1) continue;
+
+      venues[index] = venues[index].copyWith(isFavorite: true);
+    }
 
     return venues;
   }
 
   @override
-  List<String> getFavoriteVenues() {
-    return venuesLocalSource.getFavoriteVenues();
-  }
-
-  @override
   void saveFavoriteVenue(String venueId) =>
-      venuesLocalSource.saveFavoriteVenue(venueId);
+      favoritesDataSource.saveFavoriteVenue(venueId);
 
   @override
   void removeFavoriteVenue(String venueId) =>
-      venuesLocalSource.removeFavoriteVenue(venueId);
+      favoritesDataSource.removeFavoriteVenue(venueId);
 }

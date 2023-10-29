@@ -1,6 +1,6 @@
 import 'package:venues_app/core/wrappers/preferences/preferences_storage.dart';
 
-abstract class VenuesLocalDataSource {
+abstract class FavoriteVenuesLocalDataSource {
   List<String> getFavoriteVenues();
 
   Future<bool> removeFavoriteVenue(String venueId);
@@ -8,10 +8,11 @@ abstract class VenuesLocalDataSource {
   Future<bool> saveFavoriteVenue(String venueId);
 }
 
-class VenuesLocalDataSourceImpl implements VenuesLocalDataSource {
+class FavoriteVenuesLocalDataSourceImpl
+    implements FavoriteVenuesLocalDataSource {
   final PreferencesStorage storage;
 
-  VenuesLocalDataSourceImpl({
+  FavoriteVenuesLocalDataSourceImpl({
     required this.storage,
   });
 
