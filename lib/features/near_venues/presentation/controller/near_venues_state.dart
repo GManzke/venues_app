@@ -1,5 +1,4 @@
-import 'package:equatable/equatable.dart';
-import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
+part of 'near_venues_cubit.dart';
 
 abstract class NearVenuesState extends Equatable {
   @override

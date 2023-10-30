@@ -1,13 +1,22 @@
+import 'dart:async';
+
+import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
 import 'package:venues_app/features/near_venues/domain/fetch_near_venues_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/remove_venue_from_favorites_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/save_venue_as_favorite_use_case.dart';
-import 'package:venues_app/features/near_venues/presentation/controller/near_venues_state.dart';
+
+part 'near_venues_state.dart';
 
 class NearVenuesCubit extends Cubit<NearVenuesState> {
   final FetchNearVenuesUseCase fetchNearVenuesUseCase;
   final SaveVenueAsFavoriteUseCase saveFavoriteVenueUseCase;
   final RemoveVenueFromFavoritesUseCase removeFavoriteVenueUseCase;
+
+  Timer? _refreshTimer;
+
+  static const _refreshInterval = Duration(seconds: 10);
 
   NearVenuesCubit({
     required this.fetchNearVenuesUseCase,
@@ -20,33 +29,51 @@ class NearVenuesCubit extends Cubit<NearVenuesState> {
     try {
       final venuesList = await fetchNearVenuesUseCase();
 
+      _startRefreshTimer();
+
       emit(NearVenuesLoadedState(venuesList: venuesList));
     } catch (e) {
       emit(NearVenuesErrorState());
     }
   }
 
-  void saveVenueAsFavorite(int index, String venueID) async {
-    final currentState = state as NearVenuesLoadedState;
+  void _startRefreshTimer() {
+    _refreshTimer?.cancel();
+    _refreshTimer = Timer.periodic(
+      _refreshInterval,
+      (_) => refreshData(),
+    );
+  }
 
-    saveFavoriteVenueUseCase(venueID);
+  Future<void> refreshData() async {
+    try {
+      final updatedList = await fetchNearVenuesUseCase();
+
+      emit(NearVenuesLoadedState(venuesList: updatedList));
+    } catch (e) {
+      return;
+    }
+  }
+
+  void toggleVenueFavorite(int index) async {
+    final currentState = state as NearVenuesLoadedState;
+    final venue = currentState.venuesList[index];
+
+    if (venue.isFavorite) {
+      saveFavoriteVenueUseCase(venue.info.id);
+    } else {
+      removeFavoriteVenueUseCase(venue.info.id);
+    }
 
     var updatedVenuesList = List.of(currentState.venuesList);
-    updatedVenuesList[index] =
-        updatedVenuesList[index].copyWith(isFavorite: true);
+    updatedVenuesList[index] = venue.copyWith(isFavorite: !venue.isFavorite);
 
     emit(NearVenuesLoadedState(venuesList: updatedVenuesList));
   }
 
-  void removeVenueFromFavorites(int index, String venueID) async {
-    final currentState = state as NearVenuesLoadedState;
-
-    removeFavoriteVenueUseCase(venueID);
-
-    var updatedVenuesList = List.of(currentState.venuesList);
-    updatedVenuesList[index] =
-        updatedVenuesList[index].copyWith(isFavorite: false);
-
-    emit(NearVenuesLoadedState(venuesList: updatedVenuesList));
+  @override
+  Future<void> close() {
+    _refreshTimer?.cancel();
+    return super.close();
   }
 }
