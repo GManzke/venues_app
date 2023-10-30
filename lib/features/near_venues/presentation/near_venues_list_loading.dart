@@ -11,7 +11,9 @@ class NearVenuesListLoading extends StatelessWidget {
       child: ListView.builder(
         itemCount: 15,
         itemBuilder: (context, index) {
-          return const _VenueItemLoading();
+          return _VenueItemLoading(
+            isLastItem: index == 14,
+          );
         },
       ),
     );
@@ -19,11 +21,15 @@ class NearVenuesListLoading extends StatelessWidget {
 }
 
 class _VenueItemLoading extends StatelessWidget {
-  const _VenueItemLoading();
+  final bool isLastItem;
 
   static const double _imageSize = 56.0;
   static const double _paddingUntilContent =
       DSTokens.s24 + _imageSize + DSTokens.s16;
+
+  const _VenueItemLoading({
+    required this.isLastItem,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -52,10 +58,14 @@ class _VenueItemLoading extends StatelessWidget {
             ),
           ),
         ),
-        const Divider(
-          indent: _paddingUntilContent,
-          endIndent: DSTokens.s24,
-        ),
+        if (isLastItem) ...[
+          const SizedBox(height: DSTokens.s24),
+        ] else ...[
+          const Divider(
+            indent: _paddingUntilContent,
+            endIndent: DSTokens.s24,
+          ),
+        ],
       ],
     );
   }

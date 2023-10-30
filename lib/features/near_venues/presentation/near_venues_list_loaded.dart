@@ -38,6 +38,7 @@ class NearVenuesListLoaded extends StatelessWidget {
             onFavoritePressed: () => onFavoritePressed(
               index,
             ),
+            isLastItem: index == venuesList.length - 1,
           ),
         );
       },

@@ -6,11 +6,13 @@ import 'package:venues_app/features/near_venues/presentation/widgets/venue_recta
 class VenueItemTile extends StatelessWidget {
   final VenueLargeItemEntity venue;
   final VoidCallback onFavoritePressed;
+  final bool isLastItem;
 
   const VenueItemTile({
     super.key,
     required this.venue,
     required this.onFavoritePressed,
+    this.isLastItem = false,
   });
 
   static const double _paddingUntilContent =
@@ -48,10 +50,14 @@ class VenueItemTile extends StatelessWidget {
             },
           ),
         ),
-        const Divider(
-          indent: _paddingUntilContent,
-          endIndent: DSTokens.s24,
-        ),
+        if (isLastItem) ...[
+          const SizedBox(height: DSTokens.s24),
+        ] else ...[
+          const Divider(
+            indent: _paddingUntilContent,
+            endIndent: DSTokens.s24,
+          ),
+        ],
       ],
     );
   }
