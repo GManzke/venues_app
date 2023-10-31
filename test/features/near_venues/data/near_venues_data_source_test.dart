@@ -67,6 +67,27 @@ void main() {
     });
 
     test(
+        'Should return an empty list '
+        'when the response does not have any venue', () async {
+      when(() => httpClient.get(
+            any(),
+            queryParameters: any(named: 'queryParameters'),
+          )).thenAnswer(
+        (_) async => HttpResponse(
+          statusCode: 200,
+          data: NearVenuesResponses.nearVenuesEmptyJson,
+        ),
+      );
+
+      final result = await dataSource.getNearVenues(
+        maxItems: 15,
+        location: (latitude: 1.0, longitude: 2.0),
+      );
+
+      expect(result.isEmpty, isTrue);
+    });
+
+    test(
         'Should throw a NearVenuesGenericException '
         'when the request is unsuccessful', () async {
       when(() => httpClient.get(
@@ -85,27 +106,6 @@ void main() {
       );
 
       expect(result, throwsA(isA<NearVenuesGenericException>()));
-    });
-
-    test(
-        'Should throw a NearVenuesNotFoundException '
-        'when the response does not have any venue', () async {
-      when(() => httpClient.get(
-            any(),
-            queryParameters: any(named: 'queryParameters'),
-          )).thenAnswer(
-        (_) async => HttpResponse(
-          statusCode: 200,
-          data: NearVenuesResponses.nearVenuesEmptyJson,
-        ),
-      );
-
-      final result = dataSource.getNearVenues(
-        maxItems: 15,
-        location: (latitude: 1.0, longitude: 2.0),
-      );
-
-      expect(result, throwsA(isA<NearVenuesNotFoundException>()));
     });
   });
 }

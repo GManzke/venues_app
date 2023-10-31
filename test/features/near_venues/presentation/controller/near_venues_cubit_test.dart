@@ -66,7 +66,8 @@ void main() {
     );
 
     blocTest(
-      'Should have NearVenuesErrorState as state when fetchData throws an exception',
+      'Should have NearVenuesErrorState as state '
+      'when fetchData throws an exception',
       build: () {
         when(() => mockFetchNearVenuesUseCase()).thenThrow(
           Exception(),
@@ -76,7 +77,7 @@ void main() {
       act: (cubit) => cubit.fetchData(),
       expect: () => [
         NearVenuesLoadingState(),
-        NearVenuesErrorState(),
+        NearVenuesErrorState.unknown(),
       ],
     );
   });

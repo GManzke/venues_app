@@ -32,25 +32,27 @@ class NearVenuesRepositoryImpl implements NearVenuesRepository {
 
     final favoriteIds = favoritesDataSource.getFavoriteVenues();
 
-    final venues = (await nearVenuesSource.getNearVenues(
+    final venues = List.of(await nearVenuesSource.getNearVenues(
       maxItems: maxItems,
       location: currentLocation,
-    ))
-        .map(
-          (e) => e.toEntity().copyWith(
-                isFavorite: favoriteIds.contains(e.id),
-                distance: locationDataSource
-                    .getDistanceInMeters(
-                      currentLocation,
-                      e.info.location,
-                    )
-                    .round(),
-              ),
-        )
+    ));
+
+    if (venues.isEmpty) {
+      return [];
+    }
+
+    return venues
+        .map((e) => e.toEntity().copyWith(
+              isFavorite: favoriteIds.contains(e.id),
+              distance: locationDataSource
+                  .getDistanceInMeters(
+                    currentLocation,
+                    e.info.location,
+                  )
+                  .round(),
+            ))
         .toList()
       ..sort((a, b) => a.distance!.compareTo(b.distance!));
-
-    return venues;
   }
 
   @override

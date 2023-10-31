@@ -4,10 +4,14 @@ import 'package:venues_app/core/design_system/ds_assets.dart';
 import 'package:venues_app/core/design_system/ds_tokens.dart';
 
 class NearVenuesError extends StatelessWidget {
+  final String errorTitle;
+  final String errorMessage;
   final VoidCallback onRetryPressed;
 
   const NearVenuesError({
     super.key,
+    required this.errorTitle,
+    required this.errorMessage,
     required this.onRetryPressed,
   });
 
@@ -32,14 +36,14 @@ class NearVenuesError extends StatelessWidget {
             height: DSTokens.s24,
           ),
           Text(
-            'No Internet Connection',
+            errorTitle,
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
             height: DSTokens.s8,
           ),
           Text(
-            'Check your connection and try again',
+            errorMessage,
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(

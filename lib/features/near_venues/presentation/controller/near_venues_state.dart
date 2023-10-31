@@ -18,4 +18,17 @@ class NearVenuesLoadedState extends NearVenuesState {
   List<Object> get props => [venuesList];
 }
 
-class NearVenuesErrorState extends NearVenuesState {}
+class NearVenuesErrorState extends NearVenuesState {
+  final String errorTitle;
+  final String errorMessage;
+
+  NearVenuesErrorState.network({
+    this.errorTitle = 'No Internet Connection',
+    this.errorMessage = 'Check your connection and try again',
+  });
+
+  NearVenuesErrorState.unknown({
+    this.errorTitle = 'Something went wrong',
+    this.errorMessage = 'Please try again later',
+  });
+}

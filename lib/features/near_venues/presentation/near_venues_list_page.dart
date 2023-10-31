@@ -41,6 +41,8 @@ class NearVenuesListPage extends StatelessWidget {
 
               if (state is NearVenuesErrorState) {
                 return NearVenuesError(
+                  errorTitle: state.errorTitle,
+                  errorMessage: state.errorMessage,
                   onRetryPressed: () =>
                       context.read<NearVenuesCubit>().fetchData(),
                 );

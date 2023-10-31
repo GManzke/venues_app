@@ -4,6 +4,9 @@ import 'package:lottie/lottie.dart';
 import 'package:venues_app/features/near_venues/presentation/near_venues_list_error.dart';
 
 void main() {
+  const errorTitle = 'Error Title';
+  const errorMessage = 'Error Message';
+
   Future<void> createWidget(
     WidgetTester tester, {
     VoidCallback? onRetryPressed,
@@ -12,6 +15,8 @@ void main() {
       MaterialApp(
         home: Scaffold(
           body: NearVenuesError(
+            errorTitle: errorTitle,
+            errorMessage: errorMessage,
             onRetryPressed: onRetryPressed ?? () {},
           ),
         ),
@@ -31,11 +36,11 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.text('No Internet Connection'),
+        find.text(errorTitle),
         findsOneWidget,
       );
       expect(
-        find.text('Check your connection and try again'),
+        find.text(errorMessage),
         findsOneWidget,
       );
       expect(

@@ -80,7 +80,7 @@ void main() {
     'Should display error when state is NearVenuesErrorState',
     (WidgetTester tester) async {
       when(() => mockNearVenuesCubit.state).thenReturn(
-        NearVenuesErrorState(),
+        NearVenuesErrorState.unknown(),
       );
       when(() => mockNearVenuesCubit.fetchData()).thenAnswer(
         (_) async {},
