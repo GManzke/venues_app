@@ -5,7 +5,7 @@ The Near Venues app integrates with the Wolt restaurant's API to display venues 
 
 | Video | Loading Screen | Error Screen |
 | ------------- | ------------- | ----------- | 
-| PLACEHOLDER | PLACEHOLDER | PLACEHOLDER |
+|<img src="https://github.com/GManzke/venues_app/assets/52476927/4eb49279-33b0-4f01-a5d6-75a39a2b45db" width="300">| <img src="https://github.com/GManzke/venues_app/assets/52476927/933b0f5f-ad9b-4ead-a298-0e8f018c9235" width="300">|<img src="https://github.com/GManzke/venues_app/assets/52476927/91b467a6-482d-4ea1-898e-eea7173c5de2" width="300">|
 
 ### Instalation
 
@@ -39,6 +39,10 @@ Code coverage:
 PLACEHOLDER
 
 
-## Considerations 
+## Final Considerations 
 
-- PLACEHOLDER
+- This application, while compact in scope, is built upon a robust architectural foundation. The intention was to showcase proficiency in developing scalable systems. While Clean Architecture paired with Bloc for state management was chosen for this project, it's recognized that there's no one-size-fits-all solution in software development. Flexibility in adopting different architectural paradigms is crucial, as the best approach often varies based on specific use cases.
+- Regardless of the specific architecture employed, having a well-defined structure is essential. It not only facilitates system scalability but also allows for team expansion, accommodating developers of varying expertise and seniority levels.
+- Modularization is key for scalability. While the current structure centralizes functionalities within the "core" directory, it's better to split this into distinct modules to achieve a clearer separation of concerns. This not only streamlines code management but also simplifies future expansions.
+  - Establishing a dedicated module for the design system, for instance, paves the way for integrating tools like Storybook. This facilitates developers in visualizing existing widgets, determining their reusability, and ensuring consistent UI components throughout the application.
+  - Similarly, rather than housing services like Preferences Storage directly within the core, creating a distinct database module offers a more structured approach. This prevents the core from becoming a catch-all, ensuring that each service or functionality has a clear, designated location and imported only when needed.
