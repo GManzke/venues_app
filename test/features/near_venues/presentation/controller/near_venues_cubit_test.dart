@@ -51,7 +51,7 @@ void main() {
       'Should have NearVenuesLoadedState as state when fetchData is called',
       build: () {
         when(() => mockFetchNearVenuesUseCase()).thenAnswer(
-          (_) async => NearVenuesResponses.nearVenuesEntityList,
+          (_) async => NearVenuesResponses.listOfVenueLargeItemAsEntities,
         );
 
         return nearVenuesCubit;
@@ -60,7 +60,7 @@ void main() {
       expect: () => [
         NearVenuesLoadingState(),
         NearVenuesLoadedState(
-          venuesList: NearVenuesResponses.nearVenuesEntityList,
+          venuesList: NearVenuesResponses.listOfVenueLargeItemAsEntities,
         ),
       ],
     );
@@ -87,14 +87,15 @@ void main() {
       'when toggleVenueFavorite is called',
       build: () => nearVenuesCubit,
       seed: () => NearVenuesLoadedState(
-        venuesList: NearVenuesResponses.nearVenuesEntityList,
+        venuesList: NearVenuesResponses.listOfVenueLargeItemAsEntities,
       ),
       act: (cubit) {
         cubit.toggleVenueFavorite(0);
       },
       expect: () => [
         NearVenuesLoadedState(
-          venuesList: NearVenuesResponses.nearVenuesEntityListWithFavorite,
+          venuesList:
+              NearVenuesResponses.listOfVenueLargeItemAsEntitiesWithFavorite,
         ),
       ],
     );
@@ -104,14 +105,15 @@ void main() {
       'when toggleVenueFavorite is called',
       build: () => nearVenuesCubit,
       seed: () => NearVenuesLoadedState(
-        venuesList: NearVenuesResponses.nearVenuesEntityListWithFavorite,
+        venuesList:
+            NearVenuesResponses.listOfVenueLargeItemAsEntitiesWithFavorite,
       ),
       act: (cubit) {
         cubit.toggleVenueFavorite(0);
       },
       expect: () => [
         NearVenuesLoadedState(
-          venuesList: NearVenuesResponses.nearVenuesEntityList,
+          venuesList: NearVenuesResponses.listOfVenueLargeItemAsEntities,
         ),
       ],
     );

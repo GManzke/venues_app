@@ -4,7 +4,7 @@ import 'package:venues_app/core/wrappers/location/location_service.dart';
 
 class LocationServiceImpl implements LocationService {
   @override
-  Future<(double latitude, double longitude)> getLocation() async {
+  Future<Location> getLocation() async {
     if (!await Geolocator.isLocationServiceEnabled()) {
       throw LocationNotEnabledException();
     }
@@ -18,10 +18,20 @@ class LocationServiceImpl implements LocationService {
       throw LocationPermissionDeniedForeverException();
     }
 
-    final position = await Geolocator.getCurrentPosition(
+    final Position(latitude: lat, longitude: long) =
+        await Geolocator.getCurrentPosition(
       desiredAccuracy: LocationAccuracy.high,
     );
 
-    return (position.latitude, position.longitude);
+    return (latitude: lat, longitude: long);
   }
+
+  @override
+  double getDistanceInMeters(Location origin, Location destination) =>
+      Geolocator.distanceBetween(
+        origin.latitude,
+        origin.longitude,
+        destination.latitude,
+        destination.longitude,
+      );
 }

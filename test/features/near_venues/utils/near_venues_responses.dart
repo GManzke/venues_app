@@ -18,69 +18,52 @@ class NearVenuesResponses {
 
   static String get nearVenuesEmptyJson => _getJson('near_venues_empty.json');
 
-  static List<VenueLargeItemModel> get nearVenuesModelList => [
-        const VenueLargeItemModel(
+  static List<VenueLargeItemModel> get listOfVenueLargeItemAsModels =>
+      List.generate(
+        5,
+        (index) => VenueLargeItemModel(
           info: VenueInfoModel(
-            id: 'id',
-            name: 'name',
-            shortDescription: 'Short description',
+            id: 'Id $index',
+            name: 'name $index',
+            shortDescription: 'Short description $index',
+            location: (latitude: 1.0, longitude: 2.0),
           ),
           image: VenueImageModel(
-            url: 'url',
+            url: 'url $index',
           ),
         ),
-      ];
+      );
 
-  static List<VenueLargeItemEntity> get nearVenuesEntityList => const [
-        VenueLargeItemEntity(
+  static List<VenueLargeItemEntity> get listOfVenueLargeItemAsEntities =>
+      List.generate(
+        5,
+        (index) => VenueLargeItemEntity(
           info: VenueInfoEntity(
-            id: '1',
-            name: 'name',
-            shortDescription: 'Short description',
+            id: 'Id $index',
+            name: 'name $index',
+            shortDescription: 'Short description $index',
+            location: (latitude: 1.0, longitude: 2.0),
           ),
           image: VenueImageEntity(
-            url: 'url',
+            url: 'url $index',
           ),
         ),
-        VenueLargeItemEntity(
-          info: VenueInfoEntity(
-            id: '2',
-            name: 'name',
-            shortDescription: 'Short description',
-          ),
-          image: VenueImageEntity(
-            url: 'url',
-          ),
-        ),
-      ];
+      );
 
-  static List<VenueLargeItemEntity> get nearVenuesEntityListWithFavorite =>
-      const [
-        VenueLargeItemEntity(
-          isFavorite: true,
-          info: VenueInfoEntity(
-            id: '1',
-            name: 'name',
-            shortDescription: 'Short description',
-          ),
-          image: VenueImageEntity(
-            url: 'url',
-          ),
-        ),
-        VenueLargeItemEntity(
-          info: VenueInfoEntity(
-            id: '2',
-            name: 'name',
-            shortDescription: 'Short description',
-          ),
-          image: VenueImageEntity(
-            url: 'url',
-          ),
-        ),
-      ];
-
-  static List<String> get favoriteVenuesList => [
-        '1',
-        '2',
-      ];
+  static List<VenueLargeItemEntity>
+      get listOfVenueLargeItemAsEntitiesWithFavorite => List.generate(
+            5,
+            (index) => VenueLargeItemEntity(
+              isFavorite: index == 0,
+              info: VenueInfoEntity(
+                id: 'Id $index',
+                name: 'name $index',
+                shortDescription: 'Short description $index',
+                location: (latitude: 1.0, longitude: 2.0),
+              ),
+              image: VenueImageEntity(
+                url: 'url $index',
+              ),
+            ),
+          );
 }

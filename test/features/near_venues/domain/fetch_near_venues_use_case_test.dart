@@ -20,14 +20,14 @@ void main() {
     when(() => mockNearVenuesRepository.getNearVenues(
           maxItems: 15,
         )).thenAnswer(
-      (_) async => NearVenuesResponses.nearVenuesEntityList,
+      (_) async => NearVenuesResponses.listOfVenueLargeItemAsEntities,
     );
 
     final result = await fetchNearVenuesUseCase();
 
     expect(
       result,
-      NearVenuesResponses.nearVenuesEntityList,
+      NearVenuesResponses.listOfVenueLargeItemAsEntities,
     );
   });
 }

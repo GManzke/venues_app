@@ -17,6 +17,7 @@ void main() {
         id: '$index',
         name: 'Venue $index',
         shortDescription: 'Venue $index description',
+        location: (latitude: 1.0, longitude: 2.0),
       ),
       isFavorite: false,
       image: const VenueImageEntity(url: 'www.example.com'),

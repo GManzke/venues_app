@@ -1,5 +1,5 @@
-import 'package:venues_app/core/data/data_sources/user_location_data_source.dart';
 import 'package:venues_app/core/data/data_sources/favorite_venues_local_data_source.dart';
+import 'package:venues_app/core/data/data_sources/user_location_data_source.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_data_source.dart';
 
@@ -28,23 +28,27 @@ class NearVenuesRepositoryImpl implements NearVenuesRepository {
   Future<List<VenueLargeItemEntity>> getNearVenues({
     required int maxItems,
   }) async {
-    final (lat, lon) = await locationDataSource.getLocation();
-
-    var venues =
-        List<VenueLargeItemEntity>.of(await nearVenuesSource.getNearVenues(
-      maxItems: maxItems,
-      lat: lat,
-      lon: lon,
-    ));
+    final currentLocation = await locationDataSource.getLocation();
 
     final favoriteIds = favoritesDataSource.getFavoriteVenues();
 
-    for (var id in favoriteIds) {
-      final index = venues.indexWhere((element) => element.info.id == id);
-      if (index == -1) continue;
-
-      venues[index] = venues[index].copyWith(isFavorite: true);
-    }
+    final venues = (await nearVenuesSource.getNearVenues(
+      maxItems: maxItems,
+      location: currentLocation,
+    ))
+        .map(
+          (e) => e.toEntity().copyWith(
+                isFavorite: favoriteIds.contains(e.id),
+                distance: locationDataSource
+                    .getDistanceInMeters(
+                      currentLocation,
+                      e.info.location,
+                    )
+                    .round(),
+              ),
+        )
+        .toList()
+      ..sort((a, b) => a.distance!.compareTo(b.distance!));
 
     return venues;
   }

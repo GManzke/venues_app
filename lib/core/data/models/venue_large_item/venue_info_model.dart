@@ -4,6 +4,7 @@ class VenueInfoModel extends VenueInfoEntity {
   const VenueInfoModel({
     required super.id,
     required super.name,
+    required super.location,
     super.shortDescription,
   });
 
@@ -11,7 +12,18 @@ class VenueInfoModel extends VenueInfoEntity {
     return VenueInfoModel(
       id: json['id'] as String,
       name: json['name'] as String,
+      location: (
+        latitude: (json['location'] as List<dynamic>)[1] as double,
+        longitude: (json['location'] as List<dynamic>)[0] as double,
+      ),
       shortDescription: json['short_description'] as String?,
     );
   }
+
+  VenueInfoEntity toEntity() => VenueInfoEntity(
+        id: id,
+        name: name,
+        location: location,
+        shortDescription: shortDescription,
+      );
 }

@@ -18,10 +18,10 @@ void main() {
   });
 
   group('getNearVenues - ', () {
-    test('Should return a list of VenueModel when the request is successful',
-        () async {
-      const expectedLatitude = 1.0;
-      const expectedLongitude = 2.0;
+    test(
+        'Should return a list of VenueLargeItemModel '
+        'when the request is successful', () async {
+      const expectedLocation = (latitude: 1.0, longitude: 2.0);
       const expectedMaxItems = 15;
 
       when(() => httpClient.get(
@@ -36,16 +36,39 @@ void main() {
 
       final result = await dataSource.getNearVenues(
         maxItems: expectedMaxItems,
-        lat: expectedLatitude,
-        lon: expectedLongitude,
+        location: expectedLocation,
       );
 
       expect(result, isA<List>());
     });
 
     test(
-        'Should throw a NearVenuesGenericException when the request is unsuccessful',
-        () async {
+        'Should return a limited list of VenueLargeItemModel '
+        'when size exceeds maxItems', () async {
+      const expectedLocation = (latitude: 1.0, longitude: 2.0);
+      const expectedMaxItems = 3;
+
+      when(() => httpClient.get(
+            any(),
+            queryParameters: any(named: 'queryParameters'),
+          )).thenAnswer(
+        (_) async => HttpResponse(
+          statusCode: 200,
+          data: NearVenuesResponses.nearVenuesSuccessJson,
+        ),
+      );
+
+      final result = await dataSource.getNearVenues(
+        maxItems: expectedMaxItems,
+        location: expectedLocation,
+      );
+
+      expect(result.length, expectedMaxItems);
+    });
+
+    test(
+        'Should throw a NearVenuesGenericException '
+        'when the request is unsuccessful', () async {
       when(() => httpClient.get(
             any(),
             queryParameters: any(named: 'queryParameters'),
@@ -58,8 +81,7 @@ void main() {
 
       final result = dataSource.getNearVenues(
         maxItems: 15,
-        lat: 1.0,
-        lon: 2.0,
+        location: (latitude: 1.0, longitude: 2.0),
       );
 
       expect(result, throwsA(isA<NearVenuesGenericException>()));
@@ -80,8 +102,7 @@ void main() {
 
       final result = dataSource.getNearVenues(
         maxItems: 15,
-        lat: 1.0,
-        lon: 2.0,
+        location: (latitude: 1.0, longitude: 2.0),
       );
 
       expect(result, throwsA(isA<NearVenuesNotFoundException>()));

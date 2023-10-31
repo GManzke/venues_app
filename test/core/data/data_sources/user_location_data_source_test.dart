@@ -16,14 +16,14 @@ void main() {
 
   test('Should return the current location', () async {
     when(() => locationService.getLocation()).thenAnswer(
-      (_) async => (1.0, 2.0),
+      (_) async => (latitude: 1.0, longitude: 2.0),
     );
 
-    final (latitude, longitude) =
+    final (latitude: lat, longitude: long) =
         await userLocationDataSourceImpl.getLocation();
 
-    expect(latitude, 1.0);
-    expect(longitude, 2.0);
+    expect(lat, 1.0);
+    expect(long, 2.0);
     verify(() => locationService.getLocation()).called(1);
   });
 

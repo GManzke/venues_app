@@ -1,7 +1,9 @@
 import 'package:venues_app/core/wrappers/location/location_service.dart';
 
 abstract class UserLocationDataSource {
-  Future<(double latitude, double longitude)> getLocation();
+  Future<Location> getLocation();
+
+  double getDistanceInMeters(Location origin, Location destination);
 }
 
 class UserLocationDataSourceImpl implements UserLocationDataSource {
@@ -10,6 +12,9 @@ class UserLocationDataSourceImpl implements UserLocationDataSource {
   UserLocationDataSourceImpl(this.userLocation);
 
   @override
-  Future<(double latitude, double longitude)> getLocation() async =>
-      userLocation.getLocation();
+  Future<Location> getLocation() => userLocation.getLocation();
+
+  @override
+  double getDistanceInMeters(Location origin, Location destination) =>
+      userLocation.getDistanceInMeters(origin, destination);
 }

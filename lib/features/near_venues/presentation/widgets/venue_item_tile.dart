@@ -18,6 +18,9 @@ class VenueItemTile extends StatelessWidget {
   static const double _paddingUntilContent =
       DSTokens.s24 + VenueRectangleAvatar.imageSize + DSTokens.s16;
 
+  String get distance =>
+      '${venue.distance == null ? '-' : (venue.distance! / 1000).toStringAsFixed(1)} km';
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -27,27 +30,25 @@ class VenueItemTile extends StatelessWidget {
             horizontal: DSTokens.s24,
           ),
           leading: VenueRectangleAvatar(
-            imageUrl: venue.image.url,
+            imageUrl: venue.imageUrl,
           ),
           title: Text(
             venue.info.name,
             style: Theme.of(context).textTheme.titleMedium,
           ),
-          subtitle: venue.info.shortDescription != null
-              ? Text(
-                  venue.info.shortDescription!,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                )
-              : null,
+          subtitle: Text(
+            '$distance'
+            '\n${venue.shortDescription ?? ''}',
+            maxLines: 2,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  overflow: TextOverflow.ellipsis,
+                ),
+          ),
           trailing: IconButton(
             icon: Icon(
               venue.isFavorite ? Icons.favorite : Icons.favorite_border,
             ),
-            onPressed: () {
-              onFavoritePressed();
-            },
+            onPressed: onFavoritePressed,
           ),
         ),
         if (isLastItem) ...[

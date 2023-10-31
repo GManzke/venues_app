@@ -14,4 +14,9 @@ class VenueLargeItemModel extends VenueLargeItemEntity {
       image: VenueImageModel.fromJson(json['image']),
     );
   }
+
+  VenueLargeItemEntity toEntity() => VenueLargeItemEntity(
+        info: (info as VenueInfoModel).toEntity(),
+        image: (image as VenueImageModel).toEntity(),
+      );
 }

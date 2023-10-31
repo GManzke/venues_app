@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
-import 'package:venues_app/core/data/data_sources/user_location_data_source.dart';
 import 'package:venues_app/core/data/data_sources/favorite_venues_local_data_source.dart';
+import 'package:venues_app/core/data/data_sources/user_location_data_source.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_data_source.dart';
 import 'package:venues_app/features/near_venues/data/near_venues_repository.dart';
@@ -35,27 +35,33 @@ void main() {
   });
 
   group('getNearVenues - ', () {
+    final modelsList = NearVenuesResponses.listOfVenueLargeItemAsModels;
+    final entitiesList = NearVenuesResponses.listOfVenueLargeItemAsEntities;
+
     test('Should successfully return a list of VenueLargeItemEntity', () async {
-      const location = (lat: 1.0, lon: 2.0);
+      const location = (latitude: 1.0, longitude: 2.0);
       const expectedMaxItems = 15;
 
       when(
         () => userLocationDataSource.getLocation(),
-      ).thenAnswer((_) async => (location.lat, location.lon));
+      ).thenAnswer((_) async => location);
       when(
         () => nearVenuesDataSource.getNearVenues(
           maxItems: expectedMaxItems,
-          lat: location.lat,
-          lon: location.lon,
+          location: location,
         ),
       ).thenAnswer(
         (_) => Future.value(
-          NearVenuesResponses.nearVenuesModelList,
+          modelsList,
         ),
       );
       when(
         () => venuesLocalDataSource.getFavoriteVenues(),
       ).thenReturn([]);
+      when(() => userLocationDataSource.getDistanceInMeters(
+            location,
+            modelsList[0].info.location,
+          )).thenReturn(1.0);
 
       final result = await nearVenuesRepositoryImpl.getNearVenues(
         maxItems: expectedMaxItems,
@@ -63,7 +69,7 @@ void main() {
 
       expect(
         result,
-        NearVenuesResponses.nearVenuesModelList,
+        entitiesList,
       );
       expect(
         result,
@@ -76,41 +82,42 @@ void main() {
       verify(
         () => nearVenuesDataSource.getNearVenues(
           maxItems: expectedMaxItems,
-          lat: location.lat,
-          lon: location.lon,
+          location: location,
         ),
       );
-      verifyNoMoreInteractions(userLocationDataSource);
+
       verifyNoMoreInteractions(nearVenuesDataSource);
     });
 
     test(
         'Should successfully return a list of VenueLargeItemEntity with favorites',
         () async {
-      const location = (lat: 1.0, lon: 2.0);
+      const location = (latitude: 1.0, longitude: 2.0);
       const expectedMaxItems = 15;
 
-      var expectedList = List<VenueLargeItemEntity>.of(
-          NearVenuesResponses.nearVenuesModelList);
+      var expectedList = List.of(entitiesList);
       expectedList[0] = expectedList[0].copyWith(isFavorite: true);
 
       when(
         () => userLocationDataSource.getLocation(),
-      ).thenAnswer((_) async => (location.lat, location.lon));
+      ).thenAnswer((_) async => location);
       when(
         () => nearVenuesDataSource.getNearVenues(
           maxItems: expectedMaxItems,
-          lat: location.lat,
-          lon: location.lon,
+          location: location,
         ),
       ).thenAnswer(
         (_) => Future.value(
-          NearVenuesResponses.nearVenuesModelList,
+          modelsList,
         ),
       );
       when(
         () => venuesLocalDataSource.getFavoriteVenues(),
-      ).thenReturn(['id']);
+      ).thenReturn([expectedList[0].id]);
+      when(() => userLocationDataSource.getDistanceInMeters(
+            location,
+            modelsList[0].info.location,
+          )).thenReturn(1.0);
 
       final result = await nearVenuesRepositoryImpl.getNearVenues(
         maxItems: expectedMaxItems,

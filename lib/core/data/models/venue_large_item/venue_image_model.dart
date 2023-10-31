@@ -10,4 +10,8 @@ class VenueImageModel extends VenueImageEntity {
       url: json['url'],
     );
   }
+
+  VenueImageEntity toEntity() => VenueImageEntity(
+        url: url,
+      );
 }

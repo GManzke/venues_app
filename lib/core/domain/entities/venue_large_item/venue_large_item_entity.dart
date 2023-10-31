@@ -7,10 +7,14 @@ class VenueLargeItemEntity extends ItemEntity {
   final VenueImageEntity image;
   final bool isFavorite;
 
+  /// Distance in meters from the user's location.
+  final int? distance;
+
   const VenueLargeItemEntity({
     required this.info,
     required this.image,
     this.isFavorite = false,
+    this.distance,
   }) : super(ItemTemplates.venueLarge);
 
   @override
@@ -21,11 +25,23 @@ class VenueLargeItemEntity extends ItemEntity {
         super.template,
       ];
 
-  VenueLargeItemEntity copyWith({required bool isFavorite}) {
+  String get id => info.id;
+
+  String get name => info.name;
+
+  String get imageUrl => image.url;
+
+  String? get shortDescription => info.shortDescription;
+
+  VenueLargeItemEntity copyWith({
+    required bool isFavorite,
+    int? distance,
+  }) {
     return VenueLargeItemEntity(
       info: info,
       image: image,
       isFavorite: isFavorite,
+      distance: distance ?? this.distance,
     );
   }
 }

@@ -60,9 +60,9 @@ class NearVenuesCubit extends Cubit<NearVenuesState> {
     final venue = currentState.venuesList[index];
 
     if (venue.isFavorite) {
-      saveFavoriteVenueUseCase(venue.info.id);
+      removeFavoriteVenueUseCase(venue.id);
     } else {
-      removeFavoriteVenueUseCase(venue.info.id);
+      saveFavoriteVenueUseCase(venue.id);
     }
 
     var updatedVenuesList = List.of(currentState.venuesList);

@@ -1,3 +1,7 @@
+typedef Location = ({double latitude, double longitude});
+
 abstract class LocationService {
-  Future<(double latitude, double longitude)> getLocation();
+  Future<Location> getLocation();
+
+  double getDistanceInMeters(Location origin, Location destination);
 }
