@@ -1,11 +1,11 @@
 # Near Venues
 
 ### Description
-The Near Venues app integrates with the Wolt restaurant's API to display venues in proximity to the user's current location. It refreshes the list every 10 seconds, ensuring that any location changes are accounted for. Additionally, users have the option to tap on the "favorite" icon to mark a venue as a favorite.
+The Near Venues app integrates with the Wolt restaurant's API to present nearby venues based on the user's current location, along with the distance to each venue. The list is refreshed every 10 seconds to accommodate any changes in the user's location. Additionally, users can tap the "favorite" icon to add a venue to their list of favorites.
 
-| Video | Loading Screen | Error Screen |
-| ------------- | ------------- | ----------- | 
-|<img src="https://github.com/GManzke/venues_app/assets/52476927/4eb49279-33b0-4f01-a5d6-75a39a2b45db" width="300">| <img src="https://github.com/GManzke/venues_app/assets/52476927/933b0f5f-ad9b-4ead-a298-0e8f018c9235" width="300">|<img src="https://github.com/GManzke/venues_app/assets/52476927/91b467a6-482d-4ea1-898e-eea7173c5de2" width="300">|
+| Video | Refresh Animation | Loading Screen | Error Screen |
+| ------------- | ------------- | ------------- | ----------- | 
+|<img src="https://github.com/GManzke/venues_app/assets/52476927/95f60293-3eea-4949-811b-1d152d612e3d" width="200">| <img src="https://github.com/GManzke/venues_app/assets/52476927/78de717b-d4e4-44f3-a5cb-36f16e0b1e92" width="200"> |<img src="https://github.com/GManzke/venues_app/assets/52476927/60ebdce7-77dd-4ddb-85ca-49e01ef161cb" width="200">|<img src="https://github.com/GManzke/venues_app/assets/52476927/3b808838-ffc5-4f14-b271-140928607d10" width="200">|
 
 ### Instalation
 
@@ -36,13 +36,15 @@ This architectural design ensures a clear separation of concerns, enhancing main
 Unit testing is implemented using the **bloc_test** and **mocktail** packages. The Fixture technique is utilized to establish pre-defined states, facilitating the simulation of various scenarios to enhance the testing process.
 
 Code coverage:
-PLACEHOLDER
 
+![image](https://github.com/GManzke/venues_app/assets/52476927/010ddd95-a4aa-4501-b9f3-c8dad174e864)
 
 ## Final Considerations 
 
-- This application, while compact in scope, is built upon a robust architectural foundation. The intention was to showcase proficiency in developing scalable systems. While Clean Architecture paired with Bloc for state management was chosen for this project, it's recognized that there's no one-size-fits-all solution in software development. Flexibility in adopting different architectural paradigms is crucial, as the best approach often varies based on specific use cases.
-- Regardless of the specific architecture employed, having a well-defined structure is essential. It not only facilitates system scalability but also allows for team expansion, accommodating developers of varying expertise and seniority levels.
-- Modularization is key for scalability. While the current structure centralizes functionalities within the "core" directory, it's better to split this into distinct modules to achieve a clearer separation of concerns. This not only streamlines code management but also simplifies future expansions.
-  - Establishing a dedicated module for the design system, for instance, paves the way for integrating tools like Storybook. This facilitates developers in visualizing existing widgets, determining their reusability, and ensuring consistent UI components throughout the application.
-  - Similarly, rather than housing services like Preferences Storage directly within the core, creating a distinct database module offers a more structured approach. This prevents the core from becoming a catch-all, ensuring that each service or functionality has a clear, designated location and imported only when needed.
+- This app showcases a scalable architecture, using Clean Architecture and Bloc for state management. While this was the chosen approach, it's important to be flexible and consider other paradigms as no single solution fits all projects.
+
+- A clear structure is vital for scalability and supporting teams of varying skill levels.
+
+- Future improvements could include modularizing the "core" directory into distinct units for better separation of concerns, such as creating dedicated modules for the design system and database functionalities. This would streamline the codebase and facilitate future expansions (e.g.: Storybook, Map of Dependencies).
+
+- Although not included in this project, internationalization is an essential aspect that enhances user experience by catering to a global audience.
