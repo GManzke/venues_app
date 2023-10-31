@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:venues_app/core/design_system/ds_icon_button.dart';
 import 'package:venues_app/core/design_system/ds_tokens.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
 import 'package:venues_app/features/near_venues/presentation/widgets/venue_rectangle_avatar.dart';
@@ -44,10 +45,10 @@ class VenueItemTile extends StatelessWidget {
                   overflow: TextOverflow.ellipsis,
                 ),
           ),
-          trailing: IconButton(
-            icon: Icon(
-              venue.isFavorite ? Icons.favorite : Icons.favorite_border,
-            ),
+          trailing: DSIconButton(
+            icon: venue.isFavorite ? Icons.favorite : Icons.favorite_border,
+            semanticsLabel: 'Favorite venue',
+            semanticsHint: 'Double tap to favorite this venue',
             onPressed: onFavoritePressed,
           ),
         ),

@@ -23,4 +23,16 @@ void main() {
       expect(find.byType(ListTile), findsAtLeastNWidgets(5));
     },
   );
+
+  testWidgets(
+    'Should have Semantics label for loading',
+    (WidgetTester tester) async {
+      await createWidget(tester);
+
+      expect(
+        find.bySemanticsLabel('The content is loading'),
+        findsOneWidget,
+      );
+    },
+  );
 }

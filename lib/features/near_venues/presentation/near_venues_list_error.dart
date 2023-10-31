@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:venues_app/core/design_system/ds_assets.dart';
+import 'package:venues_app/core/design_system/ds_button.dart';
 import 'package:venues_app/core/design_system/ds_tokens.dart';
 
 class NearVenuesError extends StatelessWidget {
@@ -26,37 +27,41 @@ class NearVenuesError extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            child: Lottie.asset(
-              DSAssets.noInternetConnectionLottie,
-              fit: BoxFit.fitWidth,
-              repeat: false,
+            child: ExcludeSemantics(
+              child: Lottie.asset(
+                DSAssets.noInternetConnectionLottie,
+                fit: BoxFit.fitWidth,
+                repeat: false,
+              ),
             ),
           ),
           const SizedBox(
             height: DSTokens.s24,
           ),
-          Text(
-            errorTitle,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(
-            height: DSTokens.s8,
-          ),
-          Text(
-            errorMessage,
-            style: Theme.of(context).textTheme.bodyMedium,
+          MergeSemantics(
+            child: Column(
+              children: [
+                Text(
+                  errorTitle,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(
+                  height: DSTokens.s8,
+                ),
+                Text(
+                  errorMessage,
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
+            ),
           ),
           const SizedBox(
             height: DSTokens.s48,
           ),
-          ElevatedButton(
-            onPressed: () => onRetryPressed(),
-            child: Container(
-              width: double.infinity,
-              height: DSTokens.s48,
-              alignment: Alignment.center,
-              child: const Text('Try Again'),
-            ),
+          DSButton(
+            label: 'Try Again',
+            semanticsHint: 'Double tap to try load the venues again',
+            onPressed: onRetryPressed,
           ),
         ],
       ),

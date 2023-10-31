@@ -71,4 +71,36 @@ void main() {
       expect(isPressed, true);
     },
   );
+
+  testWidgets(
+    'Should have Semantics label for error title and message',
+    (WidgetTester tester) async {
+      await createWidget(
+        tester,
+      );
+
+      expect(
+        find.bySemanticsLabel('$errorTitle\n$errorMessage'),
+        findsOneWidget,
+      );
+    },
+  );
+
+  testWidgets(
+    'Should have Semantics for retry button',
+    (WidgetTester tester) async {
+      await createWidget(
+        tester,
+      );
+
+      expect(
+        tester.getSemantics(find.byType(Semantics)),
+        matchesSemantics(
+          label: 'Try Again',
+          hint: 'Double tap to try load the venues again',
+          isButton: true,
+        ),
+      );
+    },
+  );
 }

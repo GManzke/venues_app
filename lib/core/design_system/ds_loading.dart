@@ -14,7 +14,11 @@ class DSLoading extends StatelessWidget {
     return Shimmer.fromColors(
       baseColor: Colors.grey.shade300,
       highlightColor: Colors.grey.shade100,
-      child: child,
+      child: Semantics(
+        label: 'The content is loading',
+        excludeSemantics: true,
+        child: child,
+      ),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:venues_app/core/design_system/ds_icon_button.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_image_entity.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_info_entity.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
@@ -53,7 +54,7 @@ void main() {
         expect(find.text(expectedVenue.info.name), findsOneWidget);
         expect(find.text('1.0 km\n${expectedVenue.shortDescription!}'),
             findsOneWidget);
-        expect(find.byIcon(Icons.favorite_border), findsOneWidget);
+        expect(find.byType(DSIconButton), findsOneWidget);
       }, createHttpClient: createMockImageHttpClient);
     },
   );
