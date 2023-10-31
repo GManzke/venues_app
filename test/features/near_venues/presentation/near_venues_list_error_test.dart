@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lottie/lottie.dart';
+import 'package:venues_app/core/design_system/ds_button.dart';
 import 'package:venues_app/features/near_venues/presentation/near_venues_list_error.dart';
 
 void main() {
@@ -94,7 +95,7 @@ void main() {
       );
 
       expect(
-        tester.getSemantics(find.byType(Semantics)),
+        tester.getSemantics(find.byType(DSButton)),
         matchesSemantics(
           label: 'Try Again',
           hint: 'Double tap to try load the venues again',
