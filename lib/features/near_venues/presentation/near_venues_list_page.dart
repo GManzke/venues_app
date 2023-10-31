@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:venues_app/core/design_system/ds_tokens.dart';
 import 'package:venues_app/core/wrappers/injection/injection_service.dart';
 import 'package:venues_app/features/near_venues/presentation/controller/near_venues_cubit.dart';
 import 'package:venues_app/features/near_venues/presentation/near_venues_list_error.dart';
