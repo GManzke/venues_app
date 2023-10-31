@@ -7,7 +7,7 @@ The Near Venues app integrates with the Wolt restaurant's API to present nearby 
 | ------------- | ------------- | ------------- | ----------- | 
 |<img src="https://github.com/GManzke/venues_app/assets/52476927/95f60293-3eea-4949-811b-1d152d612e3d" width="200">| <img src="https://github.com/GManzke/venues_app/assets/52476927/78de717b-d4e4-44f3-a5cb-36f16e0b1e92" width="200"> |<img src="https://github.com/GManzke/venues_app/assets/52476927/60ebdce7-77dd-4ddb-85ca-49e01ef161cb" width="200">|<img src="https://github.com/GManzke/venues_app/assets/52476927/3b808838-ffc5-4f14-b271-140928607d10" width="200">|
 
-### Instalation
+### Requirements
 
 This project was made using **Flutter 3.13.9**
 
@@ -30,6 +30,10 @@ The diagram provided serves as a foundational blueprint for the app's developmen
 This architectural design ensures a clear separation of concerns, enhancing maintainability, scalability, and testability of the app.
 
 ![venues_app_diagram](https://github.com/GManzke/venues_app/assets/52476927/d955c5e5-e0d8-4dd5-8ac0-3bff1ebe442d)
+
+## Integration Testing
+
+The test involves opening the application, adding a venue to favorites, and then undoing this action. This ensures that the app functions as expected when users interact with its features in a real-world scenario.
 
 ## Unit Testing
 
