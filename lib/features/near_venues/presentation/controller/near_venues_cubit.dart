@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:venues_app/core/domain/entities/venue_large_item/venue_large_item_entity.dart';
+import 'package:venues_app/core/wrappers/log_service/log_service.dart';
 import 'package:venues_app/features/near_venues/domain/errors/near_venues_errors.dart';
 import 'package:venues_app/features/near_venues/domain/fetch_near_venues_use_case.dart';
 import 'package:venues_app/features/near_venues/domain/remove_venue_from_favorites_use_case.dart';
@@ -36,6 +37,7 @@ class NearVenuesCubit extends Cubit<NearVenuesState> {
     } on NearVenuesNetworkException {
       emit(NearVenuesErrorState.network());
     } catch (e) {
+      LogService.error('[Near Venues Cubit]:', e);
       emit(NearVenuesErrorState.unknown());
     }
   }
@@ -54,6 +56,7 @@ class NearVenuesCubit extends Cubit<NearVenuesState> {
 
       emit(NearVenuesLoadedState(venuesList: updatedList));
     } catch (e) {
+      LogService.error('[Near Venues Cubit]:', e);
       return;
     }
   }
