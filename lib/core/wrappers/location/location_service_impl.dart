@@ -2,6 +2,8 @@ import 'package:geolocator/geolocator.dart';
 import 'package:venues_app/core/wrappers/location/errors/location_service_errors.dart';
 import 'package:venues_app/core/wrappers/location/location_service.dart';
 
+/// Implementation of [LocationService] using [Geolocator]
+/// to get a better idea of an ideal [LocationServiceMock]
 class LocationServiceImpl implements LocationService {
   @override
   Future<Location> getLocation() async {
