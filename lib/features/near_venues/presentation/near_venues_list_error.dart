@@ -21,10 +21,10 @@ class NearVenuesError extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Spacer(),
           Expanded(
             child: Lottie.asset(
               DSAssets.noInternetConnectionLottie,
+              fit: BoxFit.fitWidth,
               repeat: false,
             ),
           ),
@@ -32,7 +32,7 @@ class NearVenuesError extends StatelessWidget {
             height: DSTokens.s24,
           ),
           Text(
-            'No internet connection',
+            'No Internet Connection',
             style: Theme.of(context).textTheme.titleLarge,
           ),
           const SizedBox(
@@ -43,19 +43,15 @@ class NearVenuesError extends StatelessWidget {
             style: Theme.of(context).textTheme.bodyMedium,
           ),
           const SizedBox(
-            height: DSTokens.s24,
+            height: DSTokens.s48,
           ),
-          const Spacer(),
           ElevatedButton(
             onPressed: () => onRetryPressed(),
             child: Container(
               width: double.infinity,
               height: DSTokens.s48,
               alignment: Alignment.center,
-              child: Text(
-                'Retry',
-                style: Theme.of(context).textTheme.labelLarge,
-              ),
+              child: const Text('Try Again'),
             ),
           ),
         ],

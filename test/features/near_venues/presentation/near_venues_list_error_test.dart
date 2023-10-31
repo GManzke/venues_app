@@ -31,7 +31,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.text('No internet connection'),
+        find.text('No Internet Connection'),
         findsOneWidget,
       );
       expect(
@@ -39,7 +39,7 @@ void main() {
         findsOneWidget,
       );
       expect(
-        find.widgetWithText(ElevatedButton, 'Retry'),
+        find.widgetWithText(ElevatedButton, 'Try Again'),
         findsOneWidget,
       );
     },

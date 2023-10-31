@@ -20,11 +20,11 @@ class NearVenuesListPage extends StatelessWidget {
             headerSliverBuilder: (context, innerBoxIsScrolled) {
               return [
                 SliverAppBar(
-                  title: const Text('Near Venues'),
+                  title: const Text('Venues Near You'),
+                  centerTitle: true,
                   titleTextStyle: Theme.of(context).textTheme.headlineSmall,
-                  titleSpacing: DSTokens.s24,
-                  floating: true,
-                  snap: true,
+                  floating: false,
+                  snap: false,
                 ),
               ];
             },
